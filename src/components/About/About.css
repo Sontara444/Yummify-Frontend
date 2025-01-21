@@ -1,0 +1,84 @@
+.about-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+ 
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 3rem;
+  justify-content: space-between;
+  
+}
+
+.about-title {
+  text-align: start;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+
+.about-sub-container{
+  align-items: center;
+  padding: 10px;
+  max-width: 1080px;
+  display: flex;
+  justify-content:center;
+  margin-top: 4rem;
+  gap: 60px;
+  text-overflow: hidden;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  margin-bottom: 2rem;
+  /* border: 1px solid red; */
+
+}
+.about-content-text{
+  max-width: 50%;
+  
+}
+
+.about-image {
+  width: 100%;
+  max-width: 350px;
+  max-height: 450px;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+
+.about-content {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  text-align: justify;
+}
+
+.about-highlight {
+  font-weight: bold;
+  color: #000;
+}
+
+
+
+.about-container .about-content:first-of-type {
+  margin-top: 2rem;
+}
+
+.about-content p{
+  color: var(--gray);
+}
+.about-explore{
+ text-align: left;
+ padding: 1rem 3rem;
+ font-size: 2rem;
+ 
+}
+
+.about-explore-container{
+  background: #F2F2F2;
+  width: 100%;
+  padding-bottom: 4rem;
+  margin: 2.6rem 0px;
+}
+

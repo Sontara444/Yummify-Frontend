@@ -1,0 +1,103 @@
+.login-container {
+    padding:10px 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+  
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 360px;
+    max-width: 80%;
+
+  }
+  .login-forget-password{
+    color: var(--orange);
+    font-size: 14px;
+  }
+  
+  
+  .login-container h2 {
+    text-align: start;
+    color: var(--gray);
+    font-size: 1.8rem;
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  
+ 
+  
+  .login-form input {
+    padding:20px 14px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+  }
+  
+  .login-form input:focus {
+    outline: none;
+    border-color: var(--orange);
+  }
+  
+  .login-form button {
+    padding: 20px;
+    font-size: 20px;
+    background-color: var(--orange);
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .login-form button:hover {
+    background-color: var(--light-orange);
+  }
+  
+
+  .login-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+    padding-bottom: 10px;
+  }
+  .loginsignup-login span{
+    color: var(--orange);
+    font-weight: 600;
+  }
+  
+  .loginsignup-login{
+    color: var(--light-gray-shade);
+  }
+  /* Style for the Cancel button */
+.cancel-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  
+}
+
+.cancel-button img {
+  width: 20px;
+  height: 20px;
+}
+
+.cancel-button:hover {
+  opacity: 0.7;
+}
+
+.loginsignup-agree{
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+  color: var(--light-gray-shade);
+  font-size: 12px;
+  font-weight: 500;
+}

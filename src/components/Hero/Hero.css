@@ -1,0 +1,159 @@
+
+.hero-section {
+  height: 700px;
+  background-image: url('../../assets/hero2_img.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; 
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.hero-content {
+  background: transparent;
+  padding: 20px 100px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin: 0 0 20px;
+}
+
+.btn {
+  background-color: #ff5722;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #e64a19;
+}
+.hero-food-container{
+  display: flex;
+  grid-template-columns: repeat(8, 1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+
+.hero-food-para{
+  text-align: center;
+}
+
+/* Default styling is applied above. */
+
+@media (max-width: 1280px) {
+  .hero-section {
+    height: 600px;
+  }
+  .hero-food-container{
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .hero-content {
+    padding: 15px 80px;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .hero-food-container {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .hero-section {
+    height: 500px;
+  }
+  .hero-food-container{
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .hero-content {
+    padding: 10px 60px;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .btn {
+    font-size: 0.85rem;
+    padding: 7px 14px;
+  }
+
+  .hero-food-container {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 800px) {
+  .hero-section {
+    height: 450px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content {
+    padding: 10px 40px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  .hero-food-container {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero-section {
+    height: auto;
+    padding: 20px;
+  }
+
+  .hero-content {
+    padding: 10px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .btn {
+    font-size: 0.7rem;
+    padding: 5px 10px;
+  }
+
+  .hero-food-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+
+

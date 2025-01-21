@@ -1,0 +1,106 @@
+.footer-container {
+    background-color: var(--white); /* White background */
+    color: var(--black); 
+    padding: 40px 0;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .footer-section {
+    margin-bottom: 10px;
+    padding: 0px 20px;
+  }
+  
+  .footer-section h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: var(--black); 
+  }
+  
+  .footer-section p,
+  .footer-section ul {
+    font-size: 14px;
+    color: var(--gray); /* Gray text for body content */
+  }
+  
+  .footer-section ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-section ul li a {
+    color: var(--black); 
+    text-decoration: none;
+  }
+  
+  .footer-section ul li a:hover {
+    text-decoration: underline;
+    color: var(--gray); /* Gray color on hover */
+  }
+  
+  .social-icons {
+    display: flex;
+    gap:10px;
+    margin-bottom: 10px;
+  }
+  
+  .social-icon {
+    color: var(--black); /* Black color for icons */
+    border: 1px solid var(--light-gray);
+  }
+  
+  
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    background-color: var(--white); /* White background for footer bottom */
+    padding: 10px 0;
+    color: var(--gray); /* Black text */
+  }
+
+  .hero_store{
+    max-width: 150px;
+    height: auto;
+  }
+
+  .footer-app-store{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+
+  
+  .footer-bottom::before {
+    content: '';
+    display: block; /* Ensures the pseudo-element behaves as a block */
+    border-top: 1.4px solid var(--light-gray); /* Creates the gray border */
+    width: 100%; /* Spans the full width */
+    margin-top: 10px; /* Adds space below the border */
+  }
+  
+  
+  @media (max-width: 1048px) {
+    
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    .footer-section {
+      padding: 0px 30px;
+    }
+  }
+  
+  
+  
