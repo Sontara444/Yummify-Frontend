@@ -10,15 +10,16 @@ import Contact from "./components/Contact/Contact";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Menu from "./components/Menu/Menu";
-// import { ToastContainer } from "react-toastify";
-// import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   const location = useLocation();
   return (
     <div className="App">
+      <ToastContainer />
       <Navbar />
-      {/* <ToastContainer> */}
+      
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login-signup" element={<Login />} />
@@ -28,8 +29,9 @@ function App() {
 
           {/* <RouteList /> */}
         </Routes>
-      {/* </ToastContainer> */}
+      
       {location.pathname !== "/login-signup" && <Footer />}
+      
     </div>
   );
 }

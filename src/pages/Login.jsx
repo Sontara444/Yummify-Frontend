@@ -4,6 +4,7 @@ import { assets } from "../assets/assets";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [name, setName] = useState("");
@@ -14,7 +15,7 @@ const Login = () => {
   const navigate = useNavigate();
   // isLoggedin, 
 
-  const {backendUrl , setIsLoggedin} = useContext(AppContext)
+  const {backendUrl , setIsLoggedin, getUserData} = useContext(AppContext)
 
   const handleSubmit = async(e) => {
     try {
@@ -26,16 +27,30 @@ const Login = () => {
 
         if(data.success){
           setIsLoggedin(true)
+          getUserData()
           navigate('/')
+          
         }
         else{
-          alert(data.message)
+          toast.error(data.message)
         }
 
       }
-      else{}
+      else{
+        const {data} = await axios.post(backendUrl + '/api/auth/login', {email, password})
+
+        if(data.success){
+          setIsLoggedin(true)
+          getUserData()
+          navigate('/')
+        }
+        else{
+          toast.error(data.message)
+        }
+        
+      }
     } catch (error) {
-      console.log("error", error)
+      toast.error(error.message)
     }
     
   };

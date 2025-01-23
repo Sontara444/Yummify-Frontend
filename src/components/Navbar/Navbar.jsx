@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import { assets } from "../../assets/assets";
+import { AppContext } from "../../context/AppContext";
 
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isSearchVisible, setIsSearchVisible] = useState(false);
+
+  const { userData } = useContext(AppContext);
+  console.log(userData);
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -20,15 +24,24 @@ const Navbar = () => {
     setIsSearchVisible(false);
   };
 
-  const handleLoginClick = () => {
-    setIsLoggedIn(!isLoggedIn);
-    navigate(isLoggedIn ? "/" : "/login-signup");
-  };
+  //   try {
+  //     axios.defaults.withCredentials = true;
+
+  //     const { data } = await axios.post(backendUrl + "/api/auth/logout");
+
+  //     data.success && setIsLoggedin(false);
+  //     data.success && setUserData(false);
+  //     navigate("/");
+  //   } catch (error) {
+  //     toast.error(error.message);
+  //   }
+  // };
 
   const toggleSearch = () => {
     setIsSearchVisible(!isSearchVisible);
   };
   const isActive = (path) => location.pathname === path;
+
   return (
     <nav className="navbar">
       <div className="brand">
@@ -54,12 +67,18 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/order-online" className={isActive("/order-online") ? "active" : ""}>
+            <Link
+              to="/order-online"
+              className={isActive("/order-online") ? "active" : ""}
+            >
               Order Online
             </Link>
           </li>
           <li>
-            <Link to="/contact" className={isActive("/contact") ? "active" : ""}>
+            <Link
+              to="/contact"
+              className={isActive("/contact") ? "active" : ""}
+            >
               Contact
             </Link>
           </li>
@@ -82,10 +101,22 @@ const Navbar = () => {
             <button type="submit">Search</button>
           </form>
         )}
-
-        <button onClick={handleLoginClick} className="login-button">
-          {isLoggedIn ? "Logout" : "Login"}
-        </button>
+       <div className="navbar-profile-section">
+        {userData ? (
+          <div className="navbar-profile">
+            {userData.name[0].toUpperCase()}
+            <div className="navbar-list-items" >
+              <ul  className="navbar-list">
+                {!userData.isAccountVerified && <li>Verify email</li>}
+                
+                <li className="navbar-logout">Logout</li>
+              </ul>
+            </div>
+          </div>
+        ) : (
+          <button onClick={()=> navigate('/login-signup')} className="login-button">login</button>
+        )}
+        </div>
 
         <button className="cart-button">
           <img src={assets.cart_img} alt="Cart" />
