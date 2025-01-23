@@ -83,7 +83,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom ">
-        <p>&copy; 2025 Yummyfy. All rights reserved.</p>
+        <p>&copy; 2025 Yummify. All rights reserved.</p>
       </div>
     </footer>
   );

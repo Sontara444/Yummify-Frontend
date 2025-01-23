@@ -82,10 +82,10 @@
   
   .footer-bottom::before {
     content: '';
-    display: block; /* Ensures the pseudo-element behaves as a block */
-    border-top: 1.4px solid var(--light-gray); /* Creates the gray border */
-    width: 100%; /* Spans the full width */
-    margin-top: 10px; /* Adds space below the border */
+    display: block; 
+    border-top: 2px solid var(--light-gray); 
+    width: 100%;
+    margin-top: 10px;
   }
   
   

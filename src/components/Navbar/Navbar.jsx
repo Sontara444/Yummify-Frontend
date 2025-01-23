@@ -3,16 +3,34 @@ import { useNavigate, Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import { assets } from "../../assets/assets";
 import { AppContext } from "../../context/AppContext";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchVisible, setIsSearchVisible] = useState(false);
 
-  const { userData } = useContext(AppContext);
+  const { userData, backendUrl, setIsLoggedin, setUserData } = useContext(AppContext);
   console.log(userData);
 
   const navigate = useNavigate();
   const location = useLocation();
+
+  const logout = async()=>{
+    try {
+
+      axios.defaults.withCredentials = true
+
+      const {data} = await axios.post(backendUrl + '/api/auth/logout')
+
+      data.success && setIsLoggedin(false)
+      data.success && setUserData(false)
+      navigate('/')
+      
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
@@ -101,20 +119,23 @@ const Navbar = () => {
             <button type="submit">Search</button>
           </form>
         )}
-       <div className="navbar-profile-section">
+       <div className="navbar-profile-section group">
         {userData ? (
           <div className="navbar-profile">
             {userData.name[0].toUpperCase()}
             <div className="navbar-list-items" >
               <ul  className="navbar-list">
-                {!userData.isAccountVerified && <li>Verify email</li>}
+                {!userData.isAccountVerified && <li className="email-verify">Verify email</li>}
                 
-                <li className="navbar-logout">Logout</li>
+                <li onClick={logout} className="navbar-logout">Logout</li>
               </ul>
             </div>
           </div>
         ) : (
-          <button onClick={()=> navigate('/login-signup')} className="login-button">login</button>
+          <button onClick={()=> navigate('/login-signup')} className="login-button">
+            login
+            {/* <img src={assets.arrow_icon} alt="" /> */}
+            </button>
         )}
         </div>
 
