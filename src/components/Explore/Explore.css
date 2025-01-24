@@ -1,0 +1,68 @@
+.menu-list-wrapper {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .explore-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem 2rem 2rem;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .explore-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .explore-text {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
+    text-align: center;
+    line-height: 1.6;
+    max-width: 700px;
+  }
+  
+  .explore-food-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  
+  .explore-food-gallery {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 132px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .explore-food-gallery:hover {
+    transform: scale(1.05);
+  }
+  
+  .explore-food-gallery img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .explore-food-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-top: 0.5rem;
+  }

@@ -2,6 +2,8 @@ import axios from "axios";
 import {  createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
+import {food_list} from '../assets/assets'
+
 export const AppContext = createContext()
 
 export const AppContextProvider = (props)=>{
@@ -49,7 +51,8 @@ export const AppContextProvider = (props)=>{
         isLoggedin, setIsLoggedin,
         userData, setUserData,
         getUserData,
-        getAuthState
+        getAuthState,
+        food_list
     }
 
     return(
