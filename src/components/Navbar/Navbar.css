@@ -1,15 +1,16 @@
 .navbar {
-  background-color: white;
+  background-color: var(--white);
   color: black;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 5px;
   width: 100%;
   position: fixed;
   top: 0; /* Fix navbar to the top */
   left: 0; /* Align navbar to the left edge */
-  z-index: 10;
+  opacity: 0.85;
+  z-index: 999;
 }
 
 .navbar .brand {

@@ -1,28 +1,17 @@
-import React, { useContext } from "react";
-import "./Menu.css"; // Add your styles in this file
-import { AppContext } from "../../context/AppContext.jsx";
-import FoodItem from "../FoodItem/FoodItem.jsx";
+import React from "react";
+import "./Menu.css"; 
+// import Explore from '../Explore/Explore.jsx'
+// import MenuList from "../MenuList/MenuList";
 
-const Menu = ({ category }) => {
-  const { food_list } = useContext(AppContext);
+
+const Menu = () => {
   return (
-    <div className="menu-list-container">
-      <div className="menu-top-dishes">
-        <h1 className="menu-top-header">Top dishes near you?</h1>
-        <div className="menu-top-dishes-container">
-          {food_list.map((item, index) => (
-            <FoodItem
-              key={index}
-              id={item.id}
-              name={item.name}
-              price={item.price}
-              description={item.description}
-              image={item.image}
-            />
-          ))}
-        </div>
-      </div>
+    <div className="menu">
+      {/* <Explore/> */}
+      {/* <MenuList/> */}
+
     </div>
+    
   );
 };
 

@@ -1,6 +1,7 @@
 import React from "react";
 import "./About.css";
-import { assets, menu_list } from "../../assets/assets";
+import { assets } from "../../assets/assets";
+import Testimonial from "../Testimonial/Testimonial";
 
 const About = () => {
   return (
@@ -26,26 +27,16 @@ const About = () => {
         </div>
       </div>
 
-      <p className="about-content">
+      {/* <p className="about-content">
         At <span className="about-highlight">Yummify</span>, we value quality
         ingredients, sustainable practices, and the art of cooking. Join our
         community and explore the endless possibilities of flavor and
         creativity.
-      </p>
-      <div className="about-explore-container">
-        <h2 className="about-explore">Explore</h2>
-        <div className="hero-food-container">
-          {menu_list.map((item, index) => (
-            <div className="hero-food-gallery" key={index}>
-              <div className="hero-food-item">
-                <img src={item.menu_image} alt="dishes" />
-                <p className="hero-food-para">{item.menu_name}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      </p> */}
+      <Testimonial/>
+      
     </div>
+    
   );
 };
 

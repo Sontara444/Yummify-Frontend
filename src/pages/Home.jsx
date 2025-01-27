@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Hero from '../components/Hero/Hero'
 import Explore from '../components/Explore/Explore'
-import Menu from '../components/Menu/Menu'
+import MenuList from '../components/MenuList/MenuList'
 
 const Home = () => {
 
@@ -10,7 +10,7 @@ const Home = () => {
     <div>
       <Hero/>
       <Explore category={category} setCategory={setCategory} />
-      <Menu category={category}/>
+      <MenuList category={category}/>
 
     </div>
   )

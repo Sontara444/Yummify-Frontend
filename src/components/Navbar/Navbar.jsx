@@ -11,7 +11,6 @@ const Navbar = () => {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
 
   const { userData, backendUrl, setIsLoggedin, setUserData } = useContext(AppContext);
-  console.log(userData);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -42,18 +41,6 @@ const Navbar = () => {
     setIsSearchVisible(false);
   };
 
-  //   try {
-  //     axios.defaults.withCredentials = true;
-
-  //     const { data } = await axios.post(backendUrl + "/api/auth/logout");
-
-  //     data.success && setIsLoggedin(false);
-  //     data.success && setUserData(false);
-  //     navigate("/");
-  //   } catch (error) {
-  //     toast.error(error.message);
-  //   }
-  // };
 
   const toggleSearch = () => {
     setIsSearchVisible(!isSearchVisible);
@@ -134,7 +121,6 @@ const Navbar = () => {
         ) : (
           <button onClick={()=> navigate('/login-signup')} className="login-button">
             login
-            {/* <img src={assets.arrow_icon} alt="" /> */}
             </button>
         )}
         </div>

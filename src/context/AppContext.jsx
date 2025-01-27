@@ -13,6 +13,32 @@ export const AppContextProvider = (props)=>{
     const [isLoggedin, setIsLoggedin] = useState(false)
     const [userData, setUserData] = useState(false)
 
+
+    const [cartItems, setCartItems] = useState({})
+    console.log("cartitems", cartItems)
+
+    const addToCart = (itemId)=>{
+        if(!cartItems[itemId]){
+            setCartItems((prev)=>({...prev, [itemId]: 1}))
+        }
+        else{
+            setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
+
+        }
+
+    }
+
+    const removeFromCart = (itemId)=>{
+        setCartItems((prev)=> ({...prev, [itemId]: prev[itemId] -1}))
+
+    }
+
+
+    useEffect(()=>{
+        console.log(cartItems)
+    },[cartItems])
+    
+
     const getAuthState = async()=>{
         try {
             const {data} = await axios.get(backendUrl + '/api/auth/is-auth')
@@ -40,6 +66,8 @@ export const AppContextProvider = (props)=>{
         
 
     }
+
+    
  
     useEffect(()=>{
         getAuthState()
@@ -52,7 +80,10 @@ export const AppContextProvider = (props)=>{
         userData, setUserData,
         getUserData,
         getAuthState,
-        food_list
+        food_list,
+        cartItems, setCartItems,
+        addToCart,
+        removeFromCart,
     }
 
     return(

@@ -7,6 +7,11 @@ import hand_wave from './hand_wave.png'
 // import header_img from './header_img.png'
 import cart_img  from './cart.png'
 import search_img  from './search_img.png'
+import male_photo1  from './male-photo1.jpg'
+import male_photo2  from './male-photo2.jpg'
+import male_photo3  from './male-photo3.jpg'
+
+
 
 import basket_icon from './basket_icon.png'
 import search_icon from './search_icon.png'
@@ -18,6 +23,9 @@ import menu_5 from './menu_5.png'
 import menu_6 from './menu_6.png'
 import menu_7 from './menu_7.png'
 import menu_8 from './menu_8.png'
+
+
+
 
 import food_1 from './food_1.png'
 import food_2 from './food_2.png'
@@ -91,6 +99,9 @@ export const assets = {
     // header_img,
     cart_img,
     search_img,
+    male_photo1,
+    male_photo2,
+    male_photo3,
 
     // logo,
     basket_icon,

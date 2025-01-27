@@ -1,64 +1,50 @@
+/* .hero{
+  border: 2px solid green;
+  
+} */
 
-.hero-section {
-  height: 700px;
-  background-image: url('../../assets/hero2_img.png');
-  background-size: cover;
+.hero-section{
+  height: 60vh;
+  background-image: url("../../assets/hero5_img.png");
   background-repeat: no-repeat;
-  background-position: center; 
+  background-position: top;
+  background-size: cover;
+}
+
+.hero-content{
   display: flex;
-  justify-content: left;
-  align-items: center;
-  color: white;
-  text-align: center;
-  position: relative;
-}
-
-.hero-content {
-  background: transparent;
-  padding: 20px 100px;
-  border-radius: 10px;
-  text-align: left;
-}
-
-.hero h1 {
-  font-size: 4rem;
-  margin: 0 0 20px;
-}
-
-.btn {
-  background-color: #ff5722;
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #e64a19;
-}
-.hero-food-container{
-  display: flex;
-  grid-template-columns: repeat(8, 1fr);
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 60px;
+  height: 100%;
+  font-size: 1.6rem;
+  /* color: var(--white); */
 }
 
-.hero-food-para{
-  text-align: center;
+.hero-content .btn {
+  display: inline-block;
+  background-color: #ff5722;
+  color: white;
+  padding: 16px 26px;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero-content .btn:hover {
+  background-color: #e64a19;
+  transform: translateY(-3px);
 }
 
 /* Default styling is applied above. */
 
-@media (max-width: 1280px) {
+/* @media (max-width: 1280px) {
   .hero-section {
     height: 600px;
   }
-  .hero-food-container{
-    grid-template-columns: repeat(4, 1fr);
-  }
+  
 
   .hero-content {
     padding: 15px 80px;
@@ -81,9 +67,6 @@
 @media (max-width: 1080px) {
   .hero-section {
     height: 500px;
-  }
-  .hero-food-container{
-    grid-template-columns: repeat(4, 1fr);
   }
 
   .hero-content {
@@ -153,7 +136,7 @@
     flex-direction: column;
     gap: 10px;
   }
-}
+} */
 
 
 
