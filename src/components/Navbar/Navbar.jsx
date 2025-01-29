@@ -10,26 +10,31 @@ const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchVisible, setIsSearchVisible] = useState(false);
 
-  const { userData, backendUrl, setIsLoggedin, setUserData } = useContext(AppContext);
+  const {
+    userData,
+    backendUrl,
+    setIsLoggedin,
+    setUserData,
+    getTotalCartAmount,
+    isLoggedin,
+  } = useContext(AppContext);
 
   const navigate = useNavigate();
   const location = useLocation();
 
-  const logout = async()=>{
+  const logout = async () => {
     try {
+      axios.defaults.withCredentials = true;
 
-      axios.defaults.withCredentials = true
+      const { data } = await axios.post(backendUrl + "/api/auth/logout");
 
-      const {data} = await axios.post(backendUrl + '/api/auth/logout')
-
-      data.success && setIsLoggedin(false)
-      data.success && setUserData(false)
-      navigate('/')
-      
+      data.success && setIsLoggedin(false);
+      data.success && setUserData(false);
+      navigate("/");
     } catch (error) {
-      toast.error(error.message)
+      toast.error(error.message);
     }
-  }
+  };
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
@@ -40,7 +45,6 @@ const Navbar = () => {
     navigate(`/search?q=${searchQuery}`);
     setIsSearchVisible(false);
   };
-
 
   const toggleSearch = () => {
     setIsSearchVisible(!isSearchVisible);
@@ -106,28 +110,49 @@ const Navbar = () => {
             <button type="submit">Search</button>
           </form>
         )}
-       <div className="navbar-profile-section group">
-        {userData ? (
-          <div className="navbar-profile">
-            {userData.name[0].toUpperCase()}
-            <div className="navbar-list-items" >
-              <ul  className="navbar-list">
-                {!userData.isAccountVerified && <li className="email-verify">Verify email</li>}
-                
-                <li onClick={logout} className="navbar-logout">Logout</li>
-              </ul>
-            </div>
-          </div>
-        ) : (
-          <button onClick={()=> navigate('/login-signup')} className="login-button">
-            login
-            </button>
-        )}
-        </div>
+        <div className="navbar-profile-section group">
+          {userData ? (
+            <div className="navbar-profile">
+              {userData.name[0].toUpperCase()}
+              <div className="navbar-list-items">
+                <ul className="navbar-list">
+                  {!userData.isAccountVerified && (
+                    <li className="email-verify">Verify email</li>
+                  )}
 
-        <button className="cart-button">
-          <img src={assets.cart_img} alt="Cart" />
-        </button>
+                  <li onClick={logout} className="navbar-logout">
+                    Logout
+                  </li>
+                </ul>
+              </div>
+            </div>
+          ) : (
+            <button
+              onClick={() => navigate("/login-signup")}
+              className="login-button"
+            >
+              login
+            </button>
+          )}
+        </div>
+        <div>
+          {!isLoggedin ? (
+            <Link to="/login-signup" className="cart-button ">
+              <img className="cart-img" src={assets.cart_img} alt="Cart" />
+            </Link>
+          ) : (
+            <div>
+              <Link to="/cart" className="cart-button ">
+                <img className="cart-img" src={assets.cart_img} alt="Cart" />
+              </Link>
+              <div
+                className={getTotalCartAmount() === 0 ? "" : "red-dot"}
+              ></div>
+            </div>
+          )}
+
+         
+        </div>
       </div>
     </nav>
   );

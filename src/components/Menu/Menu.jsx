@@ -4,7 +4,7 @@ import "./Menu.css";
 // import MenuList from "../MenuList/MenuList";
 
 
-const Menu = () => {
+const Menu = ({category}) => {
   return (
     <div className="menu">
       {/* <Explore/> */}

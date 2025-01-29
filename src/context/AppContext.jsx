@@ -34,9 +34,19 @@ export const AppContextProvider = (props)=>{
     }
 
 
-    useEffect(()=>{
-        console.log(cartItems)
-    },[cartItems])
+   const getTotalCartAmount= () =>{
+        let totalAmount = 0
+        for(const item in cartItems){
+            if(cartItems[item]> 0){
+
+                let itemInfo = food_list.find((product)=> product._id === item)
+
+                totalAmount += itemInfo.price * cartItems[item]
+            }
+        }
+        return totalAmount;
+    
+   }
     
 
     const getAuthState = async()=>{
@@ -63,15 +73,14 @@ export const AppContextProvider = (props)=>{
         }catch (error) {
             toast.error(error.message)
         }
-        
 
     }
 
-    
- 
+  
     useEffect(()=>{
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         getAuthState()
-    },[])
+    }, [])
 
 
     const value = {
@@ -84,6 +93,7 @@ export const AppContextProvider = (props)=>{
         cartItems, setCartItems,
         addToCart,
         removeFromCart,
+        getTotalCartAmount,
     }
 
     return(

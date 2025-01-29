@@ -7,10 +7,11 @@
   padding: 5px;
   width: 100%;
   position: fixed;
-  top: 0; /* Fix navbar to the top */
-  left: 0; /* Align navbar to the left edge */
+  top: 0; 
+  left: 0;
   opacity: 0.85;
   z-index: 999;
+
 }
 
 .navbar .brand {
@@ -26,10 +27,10 @@
 
 .navbar .nav-items {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   align-items: center;
   flex-grow: 1;
-  justify-content: flex-end; /* Align the items to the right */
+  padding: 0px 30px;
 }
 
 .navbar ul {
@@ -48,13 +49,13 @@
 
 .navbar a {
   text-decoration: none;
-  color: black;
+  color: var(--gray);
   font-size: 1rem;
+  font-size: 600;
 }
-
 .navbar .active {
   font-weight: bold;
-  color: #000; /* Optional: You can change the active color */
+  color: #000; 
 }
 
 .navbar .search-form {
@@ -102,28 +103,24 @@
   opacity: 0.8;
 }
 
-.navbar .search-button img,
+.navbar .search-button img{
+  width: 34px;
+  height: 34px;
+}
 .navbar .cart-button img {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
 .navbar .login-button,
 .navbar .cart-button {
-  /* padding: 0.75rem 1rem;  */
   border: none;
   background-color: transparent;
   cursor: pointer;
 }
 
-.cart-button{
-  margin-right: 1.5rem;
-}
 
 
-
-
-/* Styles for the profile section */
 .navbar-profile-section {
   position: relative;
   display: flex;
@@ -193,9 +190,33 @@
   
 }
 
-/* Show dropdown on hover of the profile */
 .navbar-profile:hover .navbar-list-items {
   display: block;
+}
+
+.cart-button {
+  position: relative;
+}
+.red-dot {
+  position: relative;
+}
+
+.red-dot::after {
+  content: attr(data-count); 
+  position: absolute;
+  bottom: 34px;
+  right: 5px;
+  background-color: var(--orange);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 

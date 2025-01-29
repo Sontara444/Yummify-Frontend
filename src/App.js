@@ -12,6 +12,8 @@ import Footer from "./components/Footer/Footer";
 import Menu from "./components/Menu/Menu";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
+import Cart from "./pages/Cart";
+import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
 
 function App() {
   const location = useLocation();
@@ -26,6 +28,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/menu" element={<Menu />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/order" element={<PlaceOrder />} />
 
           {/* <RouteList /> */}
         </Routes>
