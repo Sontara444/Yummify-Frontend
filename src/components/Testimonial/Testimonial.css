@@ -19,6 +19,7 @@
  }
  
  .testimonial-box .testimonial-text{
+    font-size: 18px;
     margin: 1rem 0;
  }
  .testimonial-text{
@@ -37,10 +38,11 @@
  .customer-photo img{
     border-radius: 50%;
     display: block;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     object-fit: cover;
     object-position: center;
     margin: auto;
+    border: 2px solid white;
     
  }

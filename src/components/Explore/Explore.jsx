@@ -29,7 +29,9 @@ const Explore = ({ category, setCategory }) => {
         </div>
       </div>
       <hr />
+      
     </div>
+    
   );
 };
 

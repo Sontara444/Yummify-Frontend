@@ -130,13 +130,13 @@
 .navbar-profile {
   position: relative;
   cursor: pointer;
-  padding: 10px;
+  padding: 16px;
   border-radius: 50%;
   background-color: var(--black);
   color: var(--white);
   text-align: center;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -147,7 +147,6 @@
   background-color: #e0e0e0;
 }
 
-/* Styles for the dropdown list */
 .navbar-list-items {
   position: absolute;
   top: 100%;

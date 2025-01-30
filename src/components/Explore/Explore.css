@@ -1,10 +1,9 @@
   .explore-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding: 2rem 2rem;
     background-color: #f9f9f9;
     border-radius: 10px;
+    width: 80%;
+    margin: 0px auto;
   }
   
   .explore-title {
@@ -26,9 +25,7 @@
   .explore-food-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 4rem;
-    
+    justify-content: space-between;
   }
   
   .explore-food-gallery {
@@ -51,6 +48,7 @@
     object-fit: cover;
     border-radius: 50%;
     margin-bottom: 1rem;
+    padding: 2px;
   }
   
   .explore-food-title {
@@ -63,4 +61,11 @@
   .active_img{
     border: 4px solid var(--orange);
   }
- 
+  
+  hr {
+    width: 100%;
+    height: 2px;
+    background-color: #9a9898;
+    border: none;
+    margin: 70px 10px auto;
+}

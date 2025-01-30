@@ -5,7 +5,6 @@ import { AppContext } from "../../context/AppContext.jsx";
 
 const FoodItem = ({ id, name, price, description, image }) => {
   const {cartItems, addToCart, removeFromCart} = useContext(AppContext)
-  // console.log(cartItems)
 
   return (
     <div className="food-item-container">

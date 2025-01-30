@@ -27,12 +27,7 @@ const About = () => {
         </div>
       </div>
 
-      {/* <p className="about-content">
-        At <span className="about-highlight">Yummify</span>, we value quality
-        ingredients, sustainable practices, and the art of cooking. Join our
-        community and explore the endless possibilities of flavor and
-        creativity.
-      </p> */}
+     
       <Testimonial/>
       
     </div>
