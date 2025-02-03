@@ -10,7 +10,7 @@ const MenuList = ({ category }) => {
       <div className="menu-top-dishes">
         <h1 className="menu-top-header">Top dishes near you?</h1>
         <div className="menu-top-dishes-container">
-          {food_list.map((item, index) => {
+          {food_list?.map((item, index) => {
             if (category === "All" || category === item.category) {
               return (
                 <FoodItem
