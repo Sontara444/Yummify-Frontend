@@ -6,7 +6,7 @@ import { AppContext } from "../../context/AppContext";
 import { toast } from "react-toastify";
 import axios from "axios";
 
-const Navbar = () => {
+const Navbar = ({setShowLogin}) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchVisible, setIsSearchVisible] = useState(false);
 
@@ -127,8 +127,7 @@ const Navbar = () => {
               </div>
             </div>
           ) : (
-            <button
-              onClick={() => navigate("/login-signup")}
+            <button onClick={()=>setShowLogin(true)}
               className="login-button"
             >
               login

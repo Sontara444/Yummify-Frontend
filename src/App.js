@@ -1,30 +1,35 @@
 import "./App.css";
 import { Routes, Route, useLocation } from "react-router-dom";
 // import RouteList from "./routes/RouteList.jsx";
-import React from "react";
+import React, { useState } from "react";
 import Home from "./pages/Home";
-import Login from "./pages/Login";
 import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
+import Login from "./pages/Login";
 
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Menu from "./components/Menu/Menu";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css'
+import "react-toastify/dist/ReactToastify.css";
 import Cart from "./pages/Cart";
 import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
 
 function App() {
+  const [showLogin, setShowLogin] = useState(false);
+
   const location = useLocation();
   return (
-    <div className="App">
-      <ToastContainer />
-      <Navbar />
-      
+    <>
+      {showLogin ? <Login setShowLogin={setShowLogin} /> : <></>}
+
+      <div className="App">
+        <ToastContainer />
+        <Navbar setShowLogin={setShowLogin} />
+
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login-signup" element={<Login />} />
+          {/* <Route path="/login-signup" element={<Login />} /> */}
           <Route path="/about" element={<About />} />
           <Route path="/menu" element={<Menu />} />
           <Route path="/contact" element={<Contact />} />
@@ -33,10 +38,10 @@ function App() {
 
           {/* <RouteList /> */}
         </Routes>
-      
-      {location.pathname !== "/login-signup" && <Footer />}
-      
-    </div>
+
+        {location.pathname !== "/login-signup" && <Footer />}
+      </div>
+    </>
   );
 }
 
