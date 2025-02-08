@@ -2,8 +2,6 @@ import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-// import {food_list} from '../assets/assets'
-
 export const AppContext = createContext();
 
 export const AppContextProvider = (props) => {
@@ -15,35 +13,70 @@ export const AppContextProvider = (props) => {
 
   const [cartItems, setCartItems] = useState({});
   const [food_list, setFood_list] = useState([]);
+  const [token, setToken] = useState("");
+
+  // const fetchProducts = async () => {
+  //   try {
+  //     const response = await axios.get(`${backendUrl}/api/product/get-product`);
+
+  //     if (response.data.success) {
+  //       setFood_list(response.data.products);
+  //     } else {
+  //       toast.error("Error");
+  //     }
+  //   } catch (error) {
+  //     toast.error(error.message);
+  //   }
+  // };
 
   const fetchProducts = async () => {
-    try {
-      const response = await axios.get(`${backendUrl}/api/product/get-product`);
-      console.log(response)
-      if (response.data.success) {
-        setFood_list(response.data.products);
-      } else {
-        toast.error("Error");
-      }
-    } catch (error) {
-      toast.error(error.message);
-    }
+    const response = await axios.get(`${backendUrl}/api/product/get-product`);
+    setFood_list(response.data.products);
   };
 
+  const loadCartData = async(token)=>{
+    const response = await axios.get(`${backendUrl}/api/cart/get`, {}, {withCredentials: true})
+    setCartItems(response.data.cartData)
+
+  }
+
   useEffect(() => {
-    fetchProducts();
+    async function loadData() {
+      await fetchProducts();
+      if (localStorage.getItem("token")) {
+        setToken(localStorage.getItem("token"));
+         await loadCartData(localStorage.getItem("token"))
+      }
+    }
+    loadData()
   }, []);
 
-  const addToCart = (itemId) => {
+  const addToCart = async (itemId) => {
     if (!cartItems[itemId]) {
       setCartItems((prev) => ({ ...prev, [itemId]: 1 }));
     } else {
       setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     }
+
+    if (token) {
+      await axios.post(
+        `${backendUrl}/api/cart/add`,
+        { itemId },
+        { withCredentials: true }
+      );
+    }
   };
 
-  const removeFromCart = (itemId) => {
+  const removeFromCart = async (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
+
+    if (token) {
+      await axios.post(
+        `${backendUrl}/api/cart/remove`,
+        { itemId },
+        { withCredentials: true }
+      );
+    }
   };
 
   const getTotalCartAmount = () => {
