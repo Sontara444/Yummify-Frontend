@@ -4,7 +4,7 @@ import { assets } from "../../assets/assets";
 import { AppContext } from "../../context/AppContext.jsx";
 
 const FoodItem = ({ id, name, price, description, image }) => {
-  const {cartItems, addToCart, removeFromCart} = useContext(AppContext)
+  const {cartItems , addToCart, removeFromCart} = useContext(AppContext)
 
   return (
     <div className="food-item-container">
