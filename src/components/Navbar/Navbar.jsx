@@ -6,7 +6,7 @@ import { AppContext } from "../../context/AppContext";
 import { toast } from "react-toastify";
 import axios from "axios";
 
-const Navbar = ({setShowLogin}) => {
+const Navbar = ({ setShowLogin }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchVisible, setIsSearchVisible] = useState(false);
 
@@ -30,7 +30,7 @@ const Navbar = ({setShowLogin}) => {
 
       data.success && setIsLoggedin(false);
       data.success && setUserData(false);
-      navigate("/cart");
+      navigate("/");
     } catch (error) {
       toast.error(error.message);
     }
@@ -116,9 +116,7 @@ const Navbar = ({setShowLogin}) => {
               {userData.name[0].toUpperCase()}
               <div className="navbar-list-items">
                 <ul className="navbar-list">
-                  {!userData.isAccountVerified && (
-                    <li className="email-verify">Verify email</li>
-                  )}
+                  <li onClick={()=>navigate('/myorders')} className="email-verify">Orders</li>
 
                   <li onClick={logout} className="navbar-logout">
                     Logout
@@ -127,30 +125,18 @@ const Navbar = ({setShowLogin}) => {
               </div>
             </div>
           ) : (
-            <button onClick={()=>setShowLogin(true)}
-              className="login-button"
-            >
+            <button onClick={() => setShowLogin(true)} className="login-button">
               login
             </button>
           )}
         </div>
         <div>
-          {!isLoggedin ? (
-            <Link to="/login-signup" className="cart-button ">
+          <div className="cart-container">
+            <Link to="/cart" className="cart-button">
               <img className="cart-img" src={assets.cart_img} alt="Cart" />
             </Link>
-          ) : (
-            <div>
-              <Link to="/cart" className="cart-button ">
-                <img className="cart-img" src={assets.cart_img} alt="Cart" />
-              </Link>
-              <div
-                className={getTotalCartAmount() === 0 ? "" : "red-dot"}
-              ></div>
-            </div>
-          )}
-
-         
+            <div className={getTotalCartAmount() === 0 ? "" : "red-dot"}></div>
+          </div>
         </div>
       </div>
     </nav>

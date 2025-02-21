@@ -52,7 +52,7 @@ const PlaceOrder = () => {
         window.location.replace(session_url)
       }
       else{
-        alert("Error")
+        alert("Login First to place an order.")
       }
    
   }
