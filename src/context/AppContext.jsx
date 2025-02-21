@@ -13,7 +13,8 @@ export const AppContextProvider = (props) => {
 
   const [cartItems, setCartItems] = useState({});
   const [food_list, setFood_list] = useState([]);
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(localStorage.getItem("token") || "");
+  // console.log(token)
 
   // const fetchProducts = async () => {
   //   try {
@@ -36,7 +37,7 @@ export const AppContextProvider = (props) => {
 
   const loadCartData = async(token)=>{
     const response = await axios.get(`${backendUrl}/api/cart/get`, {}, {withCredentials: true})
-    setCartItems(response.data.cartData)
+    setCartItems(response.data.cartData || {})
 
   }
 
@@ -66,6 +67,8 @@ export const AppContextProvider = (props) => {
       );
     }
   };
+
+  
 
   const removeFromCart = async (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
@@ -132,6 +135,7 @@ export const AppContextProvider = (props) => {
     addToCart,
     removeFromCart,
     getTotalCartAmount,
+    token,
   };
 
   return (

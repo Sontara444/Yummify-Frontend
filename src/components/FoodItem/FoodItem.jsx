@@ -6,10 +6,16 @@ import { AppContext } from "../../context/AppContext.jsx";
 const FoodItem = ({ id, name, price, description, image }) => {
   const {cartItems , addToCart, removeFromCart} = useContext(AppContext)
 
+  if (!cartItems) {
+    console.error("cartItems is undefined in FoodItem", { id, name });
+    return null;
+  }
+  
+
   return (
     <div className="food-item-container">
       <div className="food-img-container">
-      <img src={image} alt={name} className="food-item-image" />
+      <img src={image} alt="" className="food-item-image" />
       {!cartItems[id] ? (
         <img
           className="add"

@@ -30,7 +30,7 @@ const Navbar = ({setShowLogin}) => {
 
       data.success && setIsLoggedin(false);
       data.success && setUserData(false);
-      navigate("/");
+      navigate("/cart");
     } catch (error) {
       toast.error(error.message);
     }
