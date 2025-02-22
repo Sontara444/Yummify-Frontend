@@ -195,27 +195,21 @@
 .cart-button {
   position: relative;
 }
-.red-dot {
-  position: relative;
-}
 
-.red-dot::after {
-  content: attr(data-count); 
+
+.red-dot {
   position: absolute;
-  bottom: 34px;
-  right: 5px;
-  background-color: var(--orange);
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
-  border-radius: 50%;
+  top: 16px;
+  right: 36px;
+  background-color: #FF6A00;
   width: 10px;
   height: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: 50%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+
+
 
 
 
